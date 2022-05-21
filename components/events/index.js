@@ -1,3 +1,4 @@
+import classes from "./index.module.css"
 import Image from "next/image"
  
 function Events() {
@@ -30,6 +31,7 @@ function Events() {
     return (
         <div>
         <h2 className={`p-4`}>All Events</h2>
+        
         <div className="row p-4">
         {
             events.map(event => (

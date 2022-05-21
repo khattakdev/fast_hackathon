@@ -10,8 +10,8 @@ export default function Home() {
           <DashboardSidebar/>
         </div>
         <div className={`col-md-10`}>
-          {/* <Events/> */}
-          <Community/>
+          <Events/>
+          {/* <Community/> */}
         </div>
       </div>
     </div>
