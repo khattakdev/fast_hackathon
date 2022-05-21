@@ -29,9 +29,33 @@ function Events() {
         }
     ]
     return (
-        <div>
+        <div className="container-fluid">
         <h2 className={`p-4`}>All Events</h2>
         
+        <form>
+            <div className="row">
+                <div className="col-lg-4">
+                    <div className="form-group p-4">
+                        <input className="form-control" type="text" placeholder="search by event name" />                        
+                    </div>
+                </div>
+
+                <div className="col-lg-4">
+                    <div className="form-group p-4">
+                        <input className="form-control" type="text" placeholder="search by city" />                        
+                    </div>
+                </div>
+
+                <div className="col-md-4 p-4">
+                     <button className="btn btn-block btn-primary">search</button>
+                </div>
+            </div>
+            <div class="form-check ml-5">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" style={{marginLeft: "4px"}}/>
+                <label style={{marginLeft: "3px"}} class="form-check-label">use current location</label>
+              </div>
+        </form>
+
         <div className="row p-4">
         {
             events.map(event => (
