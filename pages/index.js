@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Router, useRouter } from "next/router";
 import DashboardSidebar from "../components/dashboardSidebar";
 import Community from "../components/communities";
 import Events from "../components/events";
@@ -7,7 +8,14 @@ import Message from "../components/messages";
 import Navbar from "../components/navbar";
 
 export default function Home() {
+  const router = useRouter();
   const [option, setOption] = useState("veterans");
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <div>
       <Navbar setOption={setOption} />

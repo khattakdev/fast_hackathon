@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "../axiosInstance";
 import { toast, ToastContainer } from "react-nextjs-toast";
@@ -63,6 +63,12 @@ function Signup() {
       checked: false,
     },
   ]);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();

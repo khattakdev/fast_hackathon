@@ -5,7 +5,10 @@ import axios from "../../axiosInstance";
 
 function Veterans() {
   const [veterans, setVeterans] = useState([]);
+  const [userID, setUserID] = useState("");
   const getAllVeterans = async () => {
+    const userData = await axios.get("/user");
+    setUserID(userData.data.user._id);
     const res = await axios.get("/user/veterans");
     const fetchedVeterans = res.data.veterans;
     setVeterans(fetchedVeterans);
@@ -15,9 +18,18 @@ function Veterans() {
     getAllVeterans();
   }, []);
 
+  const followVeteran = async (id, index) => {
+    console.log(id, index);
+
+    const res = await axios.patch(`/user/follow/${id}`);
+    console.log(res.data);
+    toast.notify(res.data.msg[0]);
+  };
+
   return (
     <div>
       <h2 className={`p-4`}>All Veterans</h2>
+      <ToastContainer />
       <div className="row p-4">
         {veterans.map((veteran, index) => (
           <div key={index} className="col-md-3">
@@ -64,7 +76,12 @@ function Veterans() {
 
                   <hr />
 
-                  <button className="btn btn-primary btn-block">Follow</button>
+                  <button
+                    onClick={() => followVeteran(veteran._id, index)}
+                    className="btn btn-primary btn-block"
+                  >
+                    Follow
+                  </button>
                 </div>
               </div>
             </div>

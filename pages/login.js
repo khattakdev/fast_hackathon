@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "../axiosInstance";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-nextjs-toast";
@@ -8,6 +8,13 @@ function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const body = {
