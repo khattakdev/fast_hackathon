@@ -3,7 +3,6 @@ import Community from '../components/communities'
 import Events from '../components/events'
 import Veterans from '../components/veterans'
 import Message from '../components/messages'
-import DashboardSidebar from "../components/dashboardSidebar";
 
 export default function Home() {
   return (
