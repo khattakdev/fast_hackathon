@@ -1,4 +1,5 @@
 import DashboardSidebar from '../components/dashboardSidebar'
+import Community from '../components/communities'
 import Events from '../components/events'
 
 export default function Home() {
@@ -9,7 +10,8 @@ export default function Home() {
           <DashboardSidebar/>
         </div>
         <div className={`col-md-10`}>
-          <Events/>
+          {/* <Events/> */}
+          <Community/>
         </div>
       </div>
     </div>
