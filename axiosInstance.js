@@ -2,8 +2,7 @@ import axios from "axios";
 
 let item = "";
 if (typeof window !== "undefined") {
-  // Perform localStorage action
-  item = localStorage.getItem("token");
+  item = JSON.parse(localStorage.getItem("token"));
 }
 const instance = axios.create({
   baseURL: "http://localhost:8081",

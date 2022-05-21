@@ -1,9 +1,16 @@
+import { useEffect } from "react";
 import classes from "./index.module.css";
 import axios from "../../axiosInstance";
 import Image from "next/image";
 import { useState } from "react";
 
 function DashboardSidebar() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [followings, setFollowings] = useState(0);
+  const [followers, setFollowers] = useState(0);
+  const [points, setPoints] = useState(0);
+
   const [hobbies, setHobbies] = useState([]);
   const [editMode, setEditMode] = useState(false);
 
@@ -12,6 +19,20 @@ function DashboardSidebar() {
 
     setEditMode(updatedMode);
   };
+
+  const getUserData = async () => {
+    const res = await axios.get("/user");
+    const user = res.data.user;
+
+    setName(user.name || "NA");
+    setEmail(user.email || "NA");
+    setFollowers(user.followers.length || 0);
+    setFollowings(user.followings.length || 0);
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, []);
 
   return (
     <div
@@ -30,20 +51,20 @@ function DashboardSidebar() {
           <div className={`text-center`}>
             <Image
               className={`rounded-circle img-fluid border border-white p-2`}
-              src={"/vetran-user.jpg"}
+              src={"/profile.jpeg"}
               height="100"
               width="100"
               alt="Profile Photo"
             />
-            <h5>Steven Covey</h5>
-            <span>stevencovey@gmail.com</span>
+            <h5>{name}</h5>
+            <span>{email}</span>
           </div>
         </li>
         <li className={`nav-item mt-5`}>
           <div className={`d-flex justify-content-around`}>
             <h5>Following:</h5>
             <h5>
-              <span className={`badge bg-light text-dark`}>55</span>
+              <span className={`badge bg-light text-dark`}>{followings}</span>
             </h5>
           </div>
         </li>
@@ -52,7 +73,7 @@ function DashboardSidebar() {
           <div className={`d-flex justify-content-around`}>
             <h5>Followers:</h5>
             <h5>
-              <span className={`badge bg-light text-dark`}>200</span>
+              <span className={`badge bg-light text-dark`}>{followers}</span>
             </h5>
           </div>
         </li>
@@ -63,7 +84,7 @@ function DashboardSidebar() {
           <div className={`d-flex justify-content-around`}>
             <h5>Event Points:</h5>
             <h5>
-              <span className={`badge bg-light text-dark`}>⭐200</span>
+              <span className={`badge bg-light text-dark`}>⭐{points}</span>
             </h5>
           </div>
         </li>
