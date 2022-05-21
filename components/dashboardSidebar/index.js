@@ -1,4 +1,5 @@
 import classes from "./index.module.css";
+import axios from "../../axiosInstance";
 import Image from "next/image";
 import { useState } from "react";
 
