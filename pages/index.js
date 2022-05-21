@@ -14,7 +14,8 @@ export default function Home() {
         <div className={`col-md-9`}>
           {/* <Events /> */}
           {/* <Community /> */}
-          <Veterans />
+          {/* <Veterans/> */}
+          <Message />
         </div>
       </div>
     </div>

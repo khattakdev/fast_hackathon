@@ -36,7 +36,7 @@ function DashboardSidebar() {
 
   return (
     <div
-      className={`d-flex flex-column flex-shrink-0 p-3 text-white ${classes.bgSidebar}`}
+      className={`d-flex flex-column flex-shrink-0 p-3 text-white ${classes.bgSidebar} ${classes.sidebarHeight}`}
       style={{ width: "280px" }}
     >
       <h4
