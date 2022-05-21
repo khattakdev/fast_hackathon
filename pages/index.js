@@ -1,6 +1,8 @@
-import DashboardSidebar from "../components/dashboardSidebar";
-import Community from "../components/communities";
-import Events from "../components/events";
+import DashboardSidebar from '../components/dashboardSidebar'
+import Community from '../components/communities'
+import Events from '../components/events'
+import Veterans from '../components/veterans'
+import Message from '../components/messages'
 
 export default function Home() {
   return (

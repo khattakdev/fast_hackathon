@@ -4,32 +4,6 @@ import Image from "next/image";
 
 function Events() {
   const [events, setEvent] = useState([]);
-  //   const events = [
-  //     {
-  //       eventName: "How we can succeed in life",
-  //       description: "lorem ipsum dolor sit amet visum sit amet dolor sit amet",
-  //       date: "12/05/2002",
-  //       points: 150,
-  //       type: "Motivatinal Talk",
-  //       totalInterest: 300,
-  //     },
-  //     {
-  //       eventName: "How we can succeed in life",
-  //       description: "lorem ipsum dolor sit amet visum sit amet dolor sit amet",
-  //       date: "12/05/2002",
-  //       points: 150,
-  //       type: "Motivatinal Talk",
-  //       totalInterest: 300,
-  //     },
-  //     {
-  //       eventName: "How we can succeed in life",
-  //       description: "lorem ipsum dolor sit amet visum sit amet dolor sit amet",
-  //       date: "12/05/2002",
-  //       points: 150,
-  //       type: "Motivatinal Talk",
-  //       totalInterest: 300,
-  //     },
-  //   ];
 
   const getAllEvents = async () => {
     const res = await axios.get("/events");
