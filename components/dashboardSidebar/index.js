@@ -1,10 +1,21 @@
 import classes from "./index.module.css"
 import Image from "next/image"
+import { useState } from "react"
 
 function DashboardSidebar() {
 
+    const [hobbies, setHobbies] = useState([])
+    const [editMode, setEditMode] = useState(false)
+
+
+    const updateEditMode = () => {
+        const updatedMode = !editMode;
+
+        setEditMode(updatedMode)
+    }
+
     return (
-        <div className={`d-flex flex-column flex-shrink-0 p-3 text-white ${classes.bgSidebar}`} style={{width: "280px", height: "100vh"}}>
+        <div className={`d-flex flex-column flex-shrink-0 p-3 text-white ${classes.bgSidebar}`} style={{width: "280px"}}>
              <h4 className={`d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none`}>
                 <svg className={`bi me-2`} width="40" height="32"></svg>
                 <span className={`text-white text-center`}>Dashboard</span>
@@ -50,10 +61,13 @@ function DashboardSidebar() {
             <hr />
             
             <li className={`nav-item mt-3`}>
-               <div className={``}>
+               <div>
+                   {
+                       editMode == false ?
+                   <div>
                    <div className="d-flex">
                    <h5>hobbies</h5>
-                   <button type="button" className={`${classes.hobbiesEditBtn}`}  data-toggle="modal" data-target="#hobbiesEditModal">&#9999;</button>
+                   <button onClick={updateEditMode} type="button" className={`${classes.hobbiesEditBtn}`}  data-toggle="modal" data-target="#hobbiesEditModal">&#9999;</button>
                    </div>
                    <h5>
                        <span className={`badge bg-light text-dark`}>Orphanage visit</span>
@@ -64,6 +78,54 @@ function DashboardSidebar() {
                    <h5>
                        <span className={`badge bg-light text-dark`}>Professional Talks</span>
                    </h5>
+                   </div>
+                   :
+                   <div>
+                       <button onClick={updateEditMode} className="btn btn-success mb-3">Save</button>
+                       <form>
+                       <div class="form-check">
+                            <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                            <label class="form-check-label">Public Talks</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                            <label class="form-check-label">Motivational Talks</label>
+                        </div>
+
+                        <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Planatation Drives</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Orphanage Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Visiting patients into hospitals</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Recreational Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Old home Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Book reading / discussion</label>
+              </div>
+                        
+                       </form>
+                   </div>
+}
                </div>
             </li>
             
