@@ -1,16 +1,38 @@
 import { useState } from "react";
+import axios from "../axiosInstance";
+import { useRouter } from "next/router";
+import { toast, ToastContainer } from "react-nextjs-toast";
 import classes from "../styles/auth.module.css";
 
 function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginUser = () => {};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      email,
+      password,
+    };
+    try {
+      const res = await axios.post("/auth/login", body);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      router.push("/");
+    } catch (error) {
+      if (error.response.data.error[0]) {
+        toast.notify(error.response.data.error[0]);
+      } else {
+        toast.notify("Something went wrong!");
+      }
+    }
+  };
   return (
     <div className={classes.body}>
+      <ToastContainer />
       <div className={classes.container}>
         <h1 className={classes.title}>Login</h1>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="form-group w-25 m-auto mt-5">
             <label htmlFor="email" className={`text-center ${classes.labels}`}>
               Email
@@ -40,8 +62,8 @@ function Login() {
               name="password"
               type="password"
               value={password}
-              onChange={() => {
-                const updatedPassword = e.target.password;
+              onChange={(e) => {
+                const updatedPassword = e.target.value;
                 setPassword(updatedPassword);
               }}
               placeholder="enter password"
