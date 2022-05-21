@@ -23,19 +23,57 @@ function Signup() {
               <input className={`form-control m-auto mt-1 p-3`} name="email" type="text" placeholder="enter your city"/>
             </div>
 
-
-            <div className="form-group w-50 m-auto mt-5">
-              <label htmlFor="type" className={`text-center ${classes.labels}`}>Type</label>
-              <select className={`form-control m-auto mt-1 p-3`} name="type" id="">
-                <option value="">Vetran</option>
-                <option value="">NGO</option>
-                <option value="">Educational Insitute</option>
-              </select>
-            </div>
-
             <div className="form-group w-50 m-auto mt-5">
               <label htmlFor="email" className={`text-center ${classes.labels}`}>Hobbies</label>
-              <input className={`form-control m-auto mt-1 p-3`} name="email" type="email" placeholder="enter your Hobbies (sperateed by ,)"/>
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Public Talks</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Motivational Talks</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Professional Talks</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Professional Tasks</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Planatation Drives</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Orphanage Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Visiting patients into hospitals</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Recreational Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Old home Visit</label>
+              </div>
+
+              <div class="form-check">
+                <input className="form-check-input" type="checkbox" name="option1" value="something" />
+                <label class="form-check-label">Book reading / discussion</label>
+              </div>
             </div>
 
             <div className="form-group w-50 m-auto mt-5">
