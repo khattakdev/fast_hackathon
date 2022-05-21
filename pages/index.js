@@ -12,8 +12,9 @@ export default function Home() {
           <DashboardSidebar />
         </div>
         <div className={`col-md-9`}>
-          <Events />
+          {/* <Events /> */}
           {/* <Community /> */}
+          <Message />
         </div>
       </div>
     </div>
